@@ -1,0 +1,27 @@
+# Ignore virtual environment directories
+env/
+.venv/
+.conda/
+
+# Ignore Python compiled files
+__pycache__/
+*.py[cod]
+*.so
+
+# Ignore Jupyter notebook checkpoints
+.ipynb_checkpoints/
+
+# Ignore log files
+*.log
+
+# Ignore macOS system files
+.DS_Store
+
+# Ignore Visual Studio Code and other IDEs settings
+.vscode/
+.idea/
+
+# Ignore environment.yml if you want to manually manage it
+# environment.yml
+
+# Ignore any other custom files you want to keep out of Git
