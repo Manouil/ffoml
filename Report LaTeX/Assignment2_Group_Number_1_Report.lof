@@ -1,0 +1,6 @@
+\contentsline {figure}{\numberline {1}{\ignorespaces Plot of 2 first components of PCA for all digits of the MNIST dataset.}}{4}{}%
+\contentsline {figure}{\numberline {2}{\ignorespaces Side-by-side visualization of PCA components and pair-wise PCA plots.}}{5}{}%
+\contentsline {figure}{\numberline {3}{\ignorespaces Calculation of Covariance Matrix (Dubey, 2018).}}{6}{}%
+\contentsline {figure}{\numberline {4}{\ignorespaces Training vs Testing Mean Square Error (MSE).}}{7}{}%
+\contentsline {figure}{\numberline {5}{\ignorespaces Main caption describing all three subfigures.}}{7}{}%
+\contentsline {figure}{\numberline {6}{\ignorespaces MLP performance metrics (on entire dataset)}}{8}{}%

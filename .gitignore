@@ -21,7 +21,10 @@ __pycache__/
 .vscode/
 .idea/
 
-.logs/
+logs/
+models/
+
+*.docx
 
 # Ignore environment.yml if you want to manually manage it
 # environment.yml
