@@ -5,7 +5,7 @@
 \contentsline {section}{\numberline {3}Perceptrons (Task 2)}{6}{}%
 \contentsline {section}{\numberline {4}Multilayer Perceptrons (Task 3)}{7}{}%
 \contentsline {section}{\numberline {5}Convolutional Neural Network (10 points)}{11}{}%
-\contentsline {section}{\numberline {6}Visualising CNN outcomes (10 points)}{11}{}%
-\contentsline {section}{\numberline {7}Template Section}{11}{}%
-\contentsline {subsection}{\numberline {7.1}Template Subsection}{11}{}%
-\contentsline {subsubsection}{\numberline {7.1.1}Template SubSubsection}{11}{}%
+\contentsline {section}{\numberline {6}Visualising CNN outcomes (10 points)}{12}{}%
+\contentsline {section}{\numberline {7}Template Section}{12}{}%
+\contentsline {subsection}{\numberline {7.1}Template Subsection}{12}{}%
+\contentsline {subsubsection}{\numberline {7.1.1}Template SubSubsection}{12}{}%

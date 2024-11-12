@@ -7,3 +7,6 @@
 \contentsline {figure}{\numberline {7}{\ignorespaces Train and test metrics vs epochs for standard MLP. Smoothing is set to 0.9.}}{8}{}%
 \contentsline {figure}{\numberline {8}{\ignorespaces Train and test accuracies of all models. Smoothing is set to 0.9.}}{9}{}%
 \contentsline {figure}{\numberline {9}{\ignorespaces Accuracy for different architectures. No linear trend apparent but the models in the center seem to perform slightly better.}}{10}{}%
+\contentsline {figure}{\numberline {10}{\ignorespaces Application of the left sobel matrix highlights vertical high to low transitions of the face image (Powell)}}{11}{}%
+\contentsline {figure}{\numberline {11}{\ignorespaces Characteristics of input and output layers in CNNs (made with Convviz)}}{11}{}%
+\contentsline {figure}{\numberline {12}{\ignorespaces The CNN uses simple features (like the left sobel from figure 10) to construct complex ones (Ghoshal, 2020)}}{12}{}%

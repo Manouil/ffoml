@@ -319,11 +319,38 @@ We conclude that for this problem, lighter configurations would be beneficial.
 \section{Convolutional Neural Network (10 points)}
 
 Convolutional Neural Networks (CNNs) perform calculations on groups of features instead of individual ones.
-The features of each sample are repeatedly grouped based on proximity with each other which means that the applied calculations now take geometry or time (or other forms of oganisation) into account.
-This is done by using various matrices (kernels) and similarily sized matrices produced from the sample.
-Each value of the kernel is mulitplied with the respective value of the sample's matrix.
-This operation has the effect of producing a value that reflects the similarity of the two matrices since dissimilar shapes will have dissimilar values at their respective features meaning the product will have equal chances of being positive, negative or equal, thus the sum will tend to be zero.
-(Despite the name, there is no relation with the concept of matrix/matric multiplication as we know it from linear arlgebra).
+The calculation uses a kernel, that is a matrix of weights, that gets applied on the similarily sized slices of the sample using the rolling window approach.
+More specifically, each value of the kernel is mulitplied with the respective value of the sample's matrix. with all the products being summed.
+That means that the applied calculations now take geometry or time (or other forms of oganisation) into account.
+The produced output is a map of the places where the structure of the kernel is found in the original image.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{./plots/screenshot9.png}  % Automatically scales to page width
+    \caption{Application of the left sobel matrix highlights vertical high to low transitions of the face image (Powell)}
+    \label{fig:plot12}  % Label for referencing the figure
+\end{figure}
+
+In a typical CNN architecture, multiple kernels are applied to the input layer which itself may consist of multiple layers.
+The kernels match the input in terms of depth as well and each kernel produces an additional layer for the output. These are visualised in figure 11
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{./plots/screenshot7.png}
+    \caption{Characteristics of input and output layers in CNNs (made with Convviz)}
+    \label{fig:plot13}
+\end{figure}
+
+This array of extracted features can then be used by higher order layers to synthesize more complex features, allowing the identification of complex entities.
+An example is shown in figure 12 where speed signs are identified as specific combinations of simpler shapes.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{./plots/screenshot6.png}
+    \caption{The CNN uses simple features (like the left sobel from figure 10) to construct complex ones (Ghoshal, 2020)}
+    \label{fig:plot14}
+\end{figure}
+
 
 
 \section{Visualising CNN outcomes (10 points)}
@@ -334,3 +361,7 @@ This operation has the effect of producing a value that reflects the similarity 
 \subsubsection{Template SubSubsection}
 
 \end{document}
+
+https://setosa.io/ev/image-kernels/
+https://convviz.netlify.app/
+Thresholded ConvNet ensembles: neural networks for technical forecasting

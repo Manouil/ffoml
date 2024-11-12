@@ -1,10 +1,10 @@
 # Fdb version 4
-["pdflatex"] 1731428633.82261 "c:/Users/Emmts/OneDrive/Desktop/University of Bath/Phase 3 - Unit 9 - Foundations and Frontiers of Machine Learning/FFoML_GA2/Report LaTeX/Assignment2_Group_Number_1_Report.tex" "Assignment2_Group_Number_1_Report.pdf" "Assignment2_Group_Number_1_Report" 1731428636.65298 0
-  "Assignment2_Group_Number_1_Report.aux" 1731428636 4517 cee28aea4aa0c0ecc23c637b1e8d6b04 "pdflatex"
-  "Assignment2_Group_Number_1_Report.lof" 1731428636 1141 85d6178b525a765da0efb895f8644656 "pdflatex"
-  "Assignment2_Group_Number_1_Report.lot" 1731428636 98 eecadb4570f91db1df4a755aad603144 "pdflatex"
-  "Assignment2_Group_Number_1_Report.tex" 1731428633 21259 a78d5bd6554d82bb15542e76c9f8aea2 ""
-  "Assignment2_Group_Number_1_Report.toc" 1731428636 823 b20ca12e26e95c66a5f77c497931b5c2 "pdflatex"
+["pdflatex"] 1731451967.36019 "c:/Users/Emmts/OneDrive/Desktop/University of Bath/Phase 3 - Unit 9 - Foundations and Frontiers of Machine Learning/FFoML_GA2/Report LaTeX/Assignment2_Group_Number_1_Report.tex" "Assignment2_Group_Number_1_Report.pdf" "Assignment2_Group_Number_1_Report" 1731451970.53545 0
+  "Assignment2_Group_Number_1_Report.aux" 1731451970 5257 f143aadb303d04032a3db0ab25edc074 "pdflatex"
+  "Assignment2_Group_Number_1_Report.lof" 1731451970 1617 5b6efe7f6142bc154e9298b0dceb22e7 "pdflatex"
+  "Assignment2_Group_Number_1_Report.lot" 1731451970 98 eecadb4570f91db1df4a755aad603144 "pdflatex"
+  "Assignment2_Group_Number_1_Report.tex" 1731451966 22495 9047cbc857a48723e8801aa58cfe65fe ""
+  "Assignment2_Group_Number_1_Report.toc" 1731451970 823 fe95c4cef951f9f8ab65211801545ad6 "pdflatex"
   "C:/Users/Emmts/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1731163732 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
   "C:/Users/Emmts/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1731160951 11985491 5bccc1fc3ba9e71546cbb727c964524e ""
   "C:/Users/Emmts/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1233951848 1004 54797486969f23fa377b128694d548df ""
@@ -64,7 +64,7 @@
   "C:/Users/Emmts/AppData/Local/Programs/MiKTeX/tex/latex/tools/array.sty" 1730400552 14552 27664839421e418b87f56fa4c6f66b1a ""
   "C:/Users/Emmts/AppData/Local/Programs/MiKTeX/tex/latex/tools/tabularx.sty" 1730400552 7243 e5dac1240636811edb77568b81818372 ""
   "C:/Users/Emmts/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1729265222 55384 b454dec21c2d9f45ec0b793f0995b992 ""
-  "c:/Users/Emmts/OneDrive/Desktop/University of Bath/Phase 3 - Unit 9 - Foundations and Frontiers of Machine Learning/FFoML_GA2/Report LaTeX/Assignment2_Group_Number_1_Report.tex" 1731428633 21259 a78d5bd6554d82bb15542e76c9f8aea2 ""
+  "c:/Users/Emmts/OneDrive/Desktop/University of Bath/Phase 3 - Unit 9 - Foundations and Frontiers of Machine Learning/FFoML_GA2/Report LaTeX/Assignment2_Group_Number_1_Report.tex" 1731451966 22495 9047cbc857a48723e8801aa58cfe65fe ""
   "plots/plot1.png" 1731194480 1159885 1e7602b95c9df9cd7fe619ccdfc3aece ""
   "plots/plot10.png" 1731413039 24404 1042548652f7cd7241f76118089c432f ""
   "plots/plot11.png" 1731413941 107584 6bae5887457c64e926fd13414708e9ac ""
@@ -80,6 +80,9 @@
   "plots/screenshot3.png" 1731411750 93588 c8d8d4b5017ca9a0c08c93fc90e4bb1e ""
   "plots/screenshot4.png" 1731411803 176889 78678fd6d1066cddf0af056b1ac181e8 ""
   "plots/screenshot5.png" 1731411825 20829 b35873cbabacf96699ea347c10079a02 ""
+  "plots/screenshot6.png" 1731438615 291625 6ba726be5dd8c0b117ea59d8a2c3820c ""
+  "plots/screenshot7.png" 1731440538 114835 9d76a065cc0f159f7de8db8a33609801 ""
+  "plots/screenshot9.png" 1731443161 60991 5a64724186272ba0937eb61af03efd4f ""
   (generated)
   "Assignment2_Group_Number_1_Report.aux"
   "Assignment2_Group_Number_1_Report.lof"
