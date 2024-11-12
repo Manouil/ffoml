@@ -178,7 +178,7 @@ Areas with high or low brightness indicate consistent differences between the cl
     \begin{subfigure}[t]{0.3\textwidth}
         \centering
         \includegraphics[width=\textwidth]{./plots/plot7.png} % Replace with your second image file
-        \caption{Difference betweeen average hand-drawn 8 and 9 characters}
+        \caption{Difference between average hand-drawn 8 and 9 characters}
         \label{fig:plot7b}
     \end{subfigure}
     \hspace{0.01\textwidth}
@@ -219,8 +219,118 @@ The resulting training and test accuracy is as follows:.
 At first sight it might seem as if the accuracy is lower that with the perceptron.
 The reason why this comparison would be misguided is that the model now performs multiclass classification, not binary classification, which is significantly more demanding.
 
+\begin{figure}[h!]
+    \centering
+    \begin{subfigure}[t]{\textwidth}
+        \centering
+        \includegraphics[width=0.7\textwidth]{./plots/screenshot1.png} % Replace with your first image file
+        \caption{Train (yellow) and test (blue) accuracy at each epoch.}
+        \label{fig:fig91}
+    \end{subfigure}
+    \vspace{0.2cm}
+    \begin{subfigure}[t]{\textwidth}
+        \centering
+        \includegraphics[width=0.7\textwidth]{./plots/screenshot2.png} % Replace with your second image file
+        \caption{Train (yellow) and test (blue) loss at each epoch.}
+        \label{fig:fig92}
+    \end{subfigure}
+    \caption{Train and test metrics vs epochs for standard MLP. Smoothing is set to 0.9.}
+    \label{fig:plot9}
+\end{figure}
 
-\subsection{Math of PCA}
-\subsubsection{Details}
+We leave the model to train for 100 epochs to monitor how the accuracy and loss change with time.
+We can see that accuracy score on the validation dataset gets close to its maximum within 30 epochs, but does not stop improving till the end, albeit very slowly.
+On the other hand, the loss score curve shows two things.
+Loss reaches it minimum at around 5 epochs, after which it steadily increases while training loss keeps reducing, indicating overfitting.
+The most important thing is that comparing (validation) accuracy and loss we get contradicting results.
+This is due to the fact that loss evaluates the output probabilities while accuracy evaluates the results.
+As the model overfits, the model becomes “confused” and less certain but not so much so that it completely misses the target (Smith, 2017).
+
+Next we investigate the relationship between network layers and accuracy by training and testing multiple MPLs of various depths with all other hyperparameters constant
+The number of neurons per layer is decreased to 500 to achieve training in reasonable time.
+We produce 4 models with 3, 4, 6 and 8 such layers.
+
+\begin{figure}[h!]
+    \centering
+    \begin{subfigure}[t]{\textwidth}
+        \centering
+        \includegraphics[width=0.7\textwidth]{./plots/screenshot3.png} % Replace with your first image file
+        \caption{Train accuracies for all models.}
+        \label{fig:subfig101}
+    \end{subfigure}
+    \vspace{0.2cm}
+    \begin{subfigure}[t]{\textwidth}
+        \centering
+        \includegraphics[width=0.7\textwidth]{./plots/screenshot4.png} % Replace with your second image file
+        \caption{Test accuracies for all models.}
+        \label{fig:subfig102}
+    \end{subfigure}
+    \vspace{0.2cm}
+    \begin{subfigure}[t]{\textwidth}
+        \centering
+        \includegraphics[width=0.12\textwidth]{./plots/screenshot5.png} % Replace with your second image file
+        \caption{Legand.}
+        \label{fig:subfig103}
+    \end{subfigure}
+    \caption{Train and test accuracies of all models. Smoothing is set to 0.9.}
+    \label{fig:plot10}
+\end{figure}
+
+Looking at the train curves, we see that the train performance decreases with each added layer, indicating overfitting.
+The fact that the standard model is still the best could indicate that trading "width for "depth" is the wrong thing to do here.
+Similar things apply for the test dataset but with less consistency.
+At any rate, the differences are of the order of \(0.1\% \) and there is some randomness involved (wheights init, train/test split), but the trend is reproducable accross different runs, so it would appear that all models hit a ceiling at around \(98.3\%\) accuracy.
+We would expect some drop to accuracy for larger models owning to overfiting but as we saw before, the degradation to performance appears on the loss.
+
+Regarding the number of parameters for each model, the results are as follows:
+For fully connected layers, each neuron corresponds to one parameter for each input, plus the bias. Therefore, for the first layer, we calculate:
+\[
+(784+1) \cdot 500 = 392,500.
+\]
+Subsequently, each layer adds:
+\[
+(500+1) \cdot 500 = 250,500
+\]
+parameters, and the softmax layer adds:
+\[
+(500+1) \cdot 10 = 5,010
+\]
+parameters. 
+
+Thus, the total number of parameters works out to:
+\[
+397,510 + 250,500 \cdot n,
+\]
+where \(n\) is the number of layers.
+
+We can plot these values along with the respective accuracies.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{./plots/plot11.png}  % Automatically scales to page width
+    \caption{Accuracy for different architectures. No linear trend apparent but the models in the center seem to perform slightly better.}
+    \label{fig:plot11}  % Label for referencing the figure
+\end{figure}
+
+The main model is second with most parameters because of the wider layers.
+At the large scale of things, all architectures perform similarily in terms of accuracy and as discussed, overfitting manifests itself as higher loss only.
+We conclude that for this problem, lighter configurations would be beneficial.
+
+\section{Convolutional Neural Network (10 points)}
+
+Convolutional Neural Networks (CNNs) perform calculations on groups of features instead of individual ones.
+The features of each sample are repeatedly grouped based on proximity with each other which means that the applied calculations now take geometry or time (or other forms of oganisation) into account.
+This is done by using various matrices (kernels) and similarily sized matrices produced from the sample.
+Each value of the kernel is mulitplied with the respective value of the sample's matrix.
+This operation has the effect of producing a value that reflects the similarity of the two matrices since dissimilar shapes will have dissimilar values at their respective features meaning the product will have equal chances of being positive, negative or equal, thus the sum will tend to be zero.
+(Despite the name, there is no relation with the concept of matrix/matric multiplication as we know it from linear arlgebra).
+
+
+\section{Visualising CNN outcomes (10 points)}
+
+
+\section{Template Section}
+\subsection{Template Subsection}
+\subsubsection{Template SubSubsection}
 
 \end{document}

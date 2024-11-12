@@ -23,9 +23,7 @@ __pycache__/
 
 logs/
 models/
-
-*.docx
-
+old/
 # Ignore environment.yml if you want to manually manage it
 # environment.yml
 
