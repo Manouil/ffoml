@@ -9,6 +9,8 @@
 \usepackage{lipsum}   % For placeholder text
 \usepackage{caption}
 \usepackage{subcaption}
+\usepackage{hyperref}
+
 
 \setlength{\parskip}{1em}  % Adds 1em of vertical space between paragraphs
 
@@ -47,18 +49,15 @@
 \section{Data Visualisation (Task 2)}
 \subsection{Visualing with PCA}
 
-Machine learning models use data to finetune the values of their internal parameters in a process called training.
-The power of the classification model is closely related to the amount of relevant information contained in the dataset, thus bigger datasets are usually preferred.
-However, not all information within the dataset is useful.
-Oftentimes, a feature contains information that has already been made available by another feature or a combination thereof, and as number of features within a dataset grows larger, the chances that a feature consists of the linear combination of other features of the dataset increase.
-At the same time, the mediums of visualising these datasets are usually books or electronic devices that are best suited for up to two features, as they physically have two dimensions.
-Using techniques such as video or colour/shape encoding can increase that by some amount, but datasets can have dimensions in the order of millions, orders of magnitude higher than what humans can visualise or comprehend (Sarkar, 2018).
+Machine learning models use data to finetune the values of their internal parameters while training.
+Bigger datasets can contain more information but sometimes multiple features contain the same information scaled.
+This becomes more likely with larger datasets.
+Moreover, each additional feature adds a new dimension to the dataset which makes the samples sparse, and visualisation harder. (Khee, 2022).
 
-The issue of repeated information within the dataset can be addressed by constructing new features that encompass the dataset’s information without repetition, using with the Principal Components Analysis (PCA) technique.
+This can be addressed by constructing new features that encompass the dataset’s information without repetition, using with the Principal Components Analysis (PCA) technique.
 The first new feature is engineered to explain as much variance as possible from all features of the dataset (Maćkiewicz, 1993).
-Each next one is engineered to contain as much of the information that is left, without incorporating any information of the previously engineered features.
-This often means that the last features contain little to no additional information (depending on how linearly independent the dataset was) and can be discarded, allowing for easier visualization and reducing the overall noise.
-What is more, the features are now in descending order in terms of variance explained so we can select the first n ones, knowing that we have retain maximum information per feature.
+Each next one is engineered to contain as much of the information that is left, without repetition, which means that the last features contain little to no additional information (depending on how linearly independent the dataset was) and can be discarded, allowing for easier visualization and reducing the overall noise.
+Also, the features are now in descending order in terms of variance explained so we can select the first n ones, knowing that we have retain maximum information per feature.
 We can now select a number that is suitable for visualization.
 The new features have no actual meaning but can be used to show the distribution of the samples in the space, informing us about the separability of the classes.
 
@@ -97,13 +96,13 @@ Still, due to the significant overlap caused by 10 different classes, the distri
 
 Figure 2a provides a pairwise visualisation of the distributions.
 It Is clear that some pairs of classes, e.g. (0, 1), (0, 7), (3, 7) are relatively distinct, while others (5, 8), (7, 9) are virtually impossible to separate.
-However it must be kept in mind that this is the result of considering just 2 components and not all of the information contained in the dataset.
+However this is the result of considering just 2 components and not all of the information contained in the dataset.
 That means distributions that do not seem differentiable now, may actually be when the model is trained on the original dataset.
-What is more, the above results are obtained by performing PCA on the whole dataset.
+Another point is that the above results are obtained by performing PCA on the whole dataset.
 However, when it comes to distinguishing classes in pairs, the datapoints of other classes introduce variance and noise that may be irrelevant.
 Thus, it is worth producing the same plot with the PCA calculated for each pair.
 This is shown in figure 2b and it becomes apparent that the results are better in terms of separability.
-To objectively measure this, we use the silhouette score which takes into account the average distance of a clusters samples between each-other and between the samples of the other class.
+To objectively measure this, we use the silhouette score which takes into account the average distance of a clusters samples between each-other and between the samples of the other class (Shahpure, 2020).
 Higher scores mean better clustering and for the generic PCA we get 0.337 where as the same score for the pairwise PCA is 0.407.
 This proves that we can achieve better clustering (and hence prediction performance) by performing pairwise PCA.
 
@@ -129,14 +128,13 @@ We can create a new matrix by concatenating the desired number of eigenvectors w
 
 \section{Perceptrons (Task 2)}
 
-The human neurons can receive multiple stimulations that are then upregulated or downregulated by special chemicals at the neural synapses.
-The result then is not a linear stimulation but instead a binary state of excitation which closely resembles what we humans would call “making a decision” (Glasgow University).
-Rosenblatt’s perceptron machine  is a software analogous which receives a multidimensional input that it scales individually, and then compares its sum to a bias in order to select one of two kinds of responses (Cornell University).
-In that case, the input can be the coordinates of some samples that we know belong in different classes, and that we would like the machine to be able to distinguish.
-The weights and the bias are independent of the input and can be set up to do exactly that.
-Since the operation of scaling with a parameter and then subtracting another is the equation of the line (in two dimensions) or a hyperplane, we can set up an algorithm that hypotheses which plane would separate these classes based on the values of their coordinates, and if this hypothesis is wrong, it changes it so that it would work well for these specific samples.
-If the samples occupy distinct areas of the feature space and we do that for all samples, the resulting hyperplane  would end up satisfying the requirement for all samples (since we know the samples of a cluster have similar feature values).
-From Task 2 we know that this applies to a degree, for the digit pairs.
+The human neurons receive multiple stimulations that are then regulated (scaled).
+The result then is not a linear stimulation but instead a binary state of excitation, equivalent to “making a decision” (Queensland Brain Institute).
+Rosenblatt’s perceptron machine is a software analogous which receives a multidimensional input that it individually scales, and then compares its sum to a bias in order to select a binary response (Rosenblatt, 1958).
+If the input is the coordinates of some samples the classes of which are known, we can calculate the weights and the bias, which are trainable parameters, to produce the desired response.
+Since the described operation is the equation of the line or a hyperplane, we can set up an algorithm that hypotheses which plane would separate these classes based on the values of their coordinates, and if this hypothesis is wrong, it changes it so that it would work well for these specific samples.
+If the samples occupy distinct areas of the feature space and we do that for all samples, the resulting hyperplane would end up satisfying the requirement for all samples (since we know the samples of a cluster have similar feature values) (Rosenblatt, 1958).
+From Task 1 we know that this applies to a degree, for the digit pairs.
 
 The algorithmic approach consists of two functions.
 The first implements the matrix multiplication/scaling and the comparison with the threshold to return a result/decision.
@@ -156,13 +154,12 @@ On one hand it is clear that peak accuracy is achieved at 10-20 iterations, afte
 Since the weights are randomly initialized at each run, multiple runs equal to simulated annealing and can serve to expose entrapment to local minimum.
 As the MSE is repeatedly similar, we can infer that the algorithm does not converge to a poor local minimum.
 
-Still, given the baseline MSE calculated in the notepad as 3.6, it is evident that the model has actually learned to distinguish between the two classes (8 and 9).
+Given the baseline MSE calculated in the notepad as 3.6, it is evident that the model has actually learned to distinguish between the two classes (8 and 9).
 The weights matrix has the same properties as the input matrix and thus, be reversing the process of transforming the digit images to input arrays, we can produce an image of the learned weights.
 Figure 5a provides this visualization, and makes clear that this particular simple model does not learn any high level features a human would use.
 Instead it may opportunistically utilize whichever pixels help it correctly split groups of samples that the training so far has not been able to assist it with, similar to nodes that split high impurity leaves in decision trees.
 Figure 4 shows the difference between the average image of 8 and 9.
 Areas with high or low brightness indicate consistent differences between the classes that could be used for a rule based system, yet we see that the model has focused elsewhere.
-
 
 \begin{figure}[h!]
     \centering
@@ -188,36 +185,32 @@ Areas with high or low brightness indicate consistent differences between the cl
         \caption{Accuracies for various digit pairs}
         \label{fig:plot7c}
     \end{subfigure}
-
-    % Main caption for the entire figure
-    \caption{Main caption describing all three subfigures.}
+    \caption{How the model 'sees' the samples vs How we would expect it to see. Achieved accuracies for random pairs}
     \label{fig:main_figure}
 \end{figure}
 
 Figure 6 is a compilation of other pairs of digits with the respective achieved accuracy after training.
-We see variations that are aligned with how visually similar the two digits are.
-It must be kept in mind that handwritten digits have different shapes that the digitally displayed ones, for example, the digit ‘5’ is often drawn as an ‘S’, which is more easily interpreted as an ‘8’.
+We see variations that are aligned with how visually similar the two digits are, (that is the handwritten versions as the digital ones can differ e.g. handwritten '5' often lookls more like an 'S'
 
 \section{Multilayer Perceptrons (Task 3)}
 
 To solve the problem of the perceptron’s simplicity, we can organize large groups of them into Neural Networks (NN).
-The motivation stems from a property called “emergence” that we observe when multiple biological neurons work together, where the resulting structure achieves capabilities that exceed the sum of its parts (Pedder, 2023).
+The motivation stems from a property called “emergence” where the capabilities of a structure exceed the sum of its parts (Pedder, 2023).
 In the software domain, the model can learn complex curves to separate the classes more effectively than hyperplanes can (Choi, 2020).
-Using the Keras Library we can initialize and train a network as per the assignment brief’s requirements.
-Even with the architecture fixed there are various hyperparameters that define how the model works.
+While setting up the network with the Keras Library, there are multiple hyperparamters to select. 
 Number of epochs is similar to the iterations in task 2, and batch size allows the model to work with groups of samples speeding up training.
-The amount of time needed to find the best combination increases exponentially with the number of parameters so using guidelines (Bengio, 2012) and some tests, we find one that is sufficient.
+The amount of time needed to find the best combination increases exponentially so using guidelines (Bengio, 2012) and some tests, we find one that is sufficient.
 The resulting training and test accuracy is as follows:.
 
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.3\textwidth]{./plots/plot10.png}  % Automatically scales to page width
-    \caption{MLP performance metrics (on entire dataset)}
+    \caption{MLP accuracy on train and test datasets}
     \label{fig:plot8}  % Label for referencing the figure
 \end{figure}
 
 At first sight it might seem as if the accuracy is lower that with the perceptron.
-The reason why this comparison would be misguided is that the model now performs multiclass classification, not binary classification, which is significantly more demanding.
+However, the model now performs multiclass classification, not binary classification, which is significantly more demanding.
 
 \begin{figure}[h!]
     \centering
@@ -238,11 +231,10 @@ The reason why this comparison would be misguided is that the model now performs
     \label{fig:plot9}
 \end{figure}
 
-We leave the model to train for 100 epochs to monitor how the accuracy and loss change with time.
+We leave the model to train for 100 epochs to monitor accuracy and loss.
 We can see that accuracy score on the validation dataset gets close to its maximum within 30 epochs, but does not stop improving till the end, albeit very slowly.
-On the other hand, the loss score curve shows two things.
-Loss reaches it minimum at around 5 epochs, after which it steadily increases while training loss keeps reducing, indicating overfitting.
-The most important thing is that comparing (validation) accuracy and loss we get contradicting results.
+On the other hand, test loss reaches it minimum at around 5 epochs, after which it steadily increases while training loss keeps reducing, indicating overfitting.
+It is noteworthy that comparing (validation) accuracy and loss we get contradicting results.
 This is due to the fact that loss evaluates the output probabilities while accuracy evaluates the results.
 As the model overfits, the model becomes “confused” and less certain but not so much so that it completely misses the target (Smith, 2017).
 
@@ -279,7 +271,7 @@ We produce 4 models with 3, 4, 6 and 8 such layers.
 Looking at the train curves, we see that the train performance decreases with each added layer, indicating overfitting.
 The fact that the standard model is still the best could indicate that trading "width for "depth" is the wrong thing to do here.
 Similar things apply for the test dataset but with less consistency.
-At any rate, the differences are of the order of \(0.1\% \) and there is some randomness involved (wheights init, train/test split), but the trend is reproducable accross different runs, so it would appear that all models hit a ceiling at around \(98.3\%\) accuracy.
+The differences are of the order of \(0.1\% \) and there is some randomness involved (wheights init, train/test split), but the trend is reproducable accross different runs, so it would appear that all models hit a ceiling at around \(98.3\%\) accuracy.
 We would expect some drop to accuracy for larger models owning to overfiting but as we saw before, the degradation to performance appears on the loss.
 
 Regarding the number of parameters for each model, the results are as follows:
@@ -326,7 +318,7 @@ The produced output is a map of the places where the structure of the kernel is 
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.8\textwidth]{./plots/screenshot9.png}  % Automatically scales to page width
+    \includegraphics[width=0.8\textwidth]{./plots/screenshot6.png}  % Automatically scales to page width
     \caption{Application of the left sobel matrix highlights vertical high to low transitions of the face image (Powell)}
     \label{fig:plot12}  % Label for referencing the figure
 \end{figure}
@@ -346,11 +338,139 @@ An example is shown in figure 12 where speed signs are identified as specific co
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.8\textwidth]{./plots/screenshot6.png}
+    \includegraphics[width=0.8\textwidth]{./plots/screenshot8.png}
     \caption{The CNN uses simple features (like the left sobel from figure 10) to construct complex ones (Ghoshal, 2020)}
     \label{fig:plot14}
 \end{figure}
 
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.3\textwidth]{./plots/plot12.png}
+    \caption{CNN accuracy on train and test datasets}
+    \label{fig:plot15}
+\end{figure}
+
+We see that the CNN model performs better on the test dataset than any of the MLPs.
+Plotting the train and test accuracies with tensorboard in figure 14, we can see that for the test data, peak accuracy is reached after 6 epochs.
+After that, training accuracy keeps increasing while test accuracy has a slight downwards trend, indicating overfiting.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.7\textwidth]{./plots/screenshot9.png}
+    \caption{Train (cyan) and test (pink) accuracy at each epoch.}
+    \label{fig:plot16}
+\end{figure}
+
+We will now make alterations to the Standard model to see how different hyperparameters affect it's behaviour.
+Focusing less on the initial epochs, the first thing that stands out is that increasing the kerne size from (4, 4) to (5, 5) is the only tweak that actually harms the accuracy
+Increasing the model's depth by adding a fourth layer seems to be the best tweak, though the increased number of parameters makes training slower. 
+Same goes for the wider version.
+In addition, these two variants maintain the upwards trend till the end, sugesting that more iterations could further benefit them. However this is also true for the worse (bigger kernel) one.
+The narrower model seems to perform as well as the standard one.
+In general the difference between the best and worse models is \(0.2\%\) and some noise exists in these results as the experiment was only repeated once.
+Hence the safer conclusions are deeper and wider are better than bigger kernel for similar number of epochs.
+However, given more time, more models would be allowd the reach their full potential so the results could be different then.
+Also, the number of trainable parameters is vastly different between architectures so a performance/parameter graph must also be considered.
+
+\begin{figure}[h!]
+    \centering
+    \begin{subfigure}[t]{\textwidth}
+        \centering
+        \includegraphics[width=0.7\textwidth]{./plots/screenshot10.png} % Replace with your second image file
+        \caption{Test accuracies for all CNN models.}
+        \label{fig:subfig17a}
+    \end{subfigure}
+    \vspace{0.2cm}
+    \begin{subfigure}[t]{\textwidth}
+        \centering
+        \includegraphics[width=0.3\textwidth]{./plots/screenshot11.png} % Replace with your second image file
+        \caption{Legand.}
+        \label{fig:subfig17b}
+    \end{subfigure}
+    \caption{Test accuracies of all CNN models. Smoothing is set to 0.9.}
+    \label{fig:plot17}
+\end{figure}
+
+To calculate the number of parameters in a CNN, we have that each \(n \cdot n \cdot k\) kernel has
+\[
+n \cdot n \cdot k + 1 = n^2 \cdot k + 1.
+\]
+parameters, where k is the depth of the layer and we take into account the bias. 
+
+Hence, for the 32 filters of the first layer we have
+\[
+(4 \cdot 4 \cdot 1) \cdot 32 + 32 = 544.
+\]
+parameters. For the following layers, we need to adjust for the different depths which are now 32 instead of 1 for input and 64 instead of 32 for output:
+\[
+(4 \cdot 4 \cdot 32) \cdot 64 + 64 = 32,832.
+\]
+
+With similar logic we get
+\[
+131,200
+\]
+for the last convolutional layer.
+
+The flatten layer has no parameters. So far we have ignored the stride and padding (which is zero) as they only affect the dense layer.
+In the general case, the size of the input after a convolutional layer becomes:
+\[
+\text{Output size} = \frac{\text{Input size} - \text{Kernel size} + 2 \cdot \text{Padding}}{\text{Stride}} + 1
+\]
+so for the stride of 1 of the first layer we get
+\[
+\text{First layer output} = \frac{28 - 4 + 2 \cdot 0}{1} + 1 = 25.
+\]
+This becomes 
+\[
+\text{Second layer output} = \frac{25 - 4 + 2 \cdot 0}{2} + 1 = 11.
+\]
+as divisions are rouded down. Finally we get:
+\[
+\text{Third layer output} = \frac{11 - 4 + 2 \cdot 0}{2} + 1 = 4.
+\]
+hence the flat layer produces 
+\[
+(4 \cdot 4 \cdot 128) = 2,048 \text{ values}.
+\]
+Now, the dense layer calculates 10 parameters for each, plus 10 biases for each neuron, which results in
+\[
+2,048 \cdot 10 + 10 = 20,490 \text{ parameters}.
+\]
+
+
+With similar logic we can calculate the number of parameters of all variations, or simply extract them with the provided method.
+Ploting the Accuracy over Number of Parameters we get Figure 16. On (a) we see that, as expected, the higher performing models posses more parameters.
+(b) shows that better accuracy is achieved with more trainig time, but the relation is not linear and the tradeoff is questionable when 0.1\% improvement requires more that twice the training time.
+From (c) we see that surprisingly, trainig time is not linear with number of parameters. This is because the wider one has more filters, all of which are processed for each value of each filter.
+
+\begin{figure}[h!]
+    \centering
+    \begin{subfigure}[t]{0.3\textwidth} % Adjust width as needed
+        \centering
+        \includegraphics[width=\textwidth]{./plots/plot13.png} % Replace with your first image file
+        \caption{Accuracy vs Parameters \newline(Standard is behind Bigger Kernel)}
+        \label{fig:plot16a}
+    \end{subfigure}
+    \hspace{0.01\textwidth}
+    \begin{subfigure}[t]{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{./plots/plot14.png} % Replace with your second image file
+        \caption{Accuracy vs Training Time}
+        \label{fig:plot16b}
+    \end{subfigure}
+    \hspace{0.01\textwidth}
+    \begin{subfigure}[t]{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{./plots/plot15.png} % Replace with your third image file
+        \caption{Parameters vs Training Time}
+        \label{fig:plot16c}
+    \end{subfigure}
+    \caption{Comparison of Accuracy, Number of Parameters and Training Time}
+    \label{fig:main_figure}
+\end{figure}
+
+Compared to MLPs, we see that the performance is better with way less parameters but more training time, as convolutions and back propagation accross many filters and windows are more compute intensive that matrix multiplications
 
 
 \section{Visualising CNN outcomes (10 points)}
@@ -360,8 +480,49 @@ An example is shown in figure 12 where speed signs are identified as specific co
 \subsection{Template Subsection}
 \subsubsection{Template SubSubsection}
 
-\end{document}
 
-https://setosa.io/ev/image-kernels/
-https://convviz.netlify.app/
-Thresholded ConvNet ensembles: neural networks for technical forecasting
+
+\section{References}
+
+Khee, L. K., 2022. \textit{Limitation of Data Visualisation} [Online]. Available from 
+\href{https://medium.com/@e0673935/limitation-of-data-visualization-1e4db068a22a}{https://medium.com/@e0673935/limitation-of-data-visualization-1e4db068a22a} [Accessed 13 October 2024]. \newline
+
+\noindent
+Mackiewicz, A., Ratajczak, W., 1993. Principal Components Analysis. \textit{Computers \& Geosciences}, 19(3), 303-342. \newline
+
+\noindent
+Shahapure, K. R., Nicholas, C., 2020. Cluster Quality Analysis Using Silhouette Score. \textit{2020 IEEE 7th International Conference on Data Science and Advanced Analytics (DSAA)}, 06-09 October 2020, Sydnew, NSW, Australia. pp 747-748.
+
+\noindent
+Dubey, A., 2018. \textit{The mathematics Behind Principal Component Analysis} [Online]. Medium. Available from: \href{https://towardsdatascience.com/the-mathematics-behind-principal-component-analysis-fff2d7f4b643}{https://towardsdatascience.com/the-mathematics-behind-principal-component-analysis-fff2d7f4b643} [Accessed 15 October 2024]
+
+\noindent
+Queensland Brain Institute. \textit{How do neurons work?} [Online]. The University of Queensland. Available from: \href{https://qbi.uq.edu.au/brain-basics/brain/brain-physiology/how-do-neurons-work}{https://qbi.uq.edu.au/brain-basics/brain/brain-physiology/how-do-neurons-work}
+
+\noindent
+Rosenblatt, F., 1958. The Perceptron: A Probabilistic Model for Information Storage and Organisation in the Brain. \textit{Psychological Review}, 65(6), pp.386-408.
+
+\noindent
+Rosenblatt, F., 1958. \textit{The Perceptron: A Theory of Statistical Separability in Cognitive Systems}. Cornel Auronautical Labolatory.
+
+\noindent
+Pedder, C., 2023, \textit{Large language models \& emergence} [Online], LinkedIn. Available from: \href{https://www.linkedin.com/pulse/what-emergence-neural-networks-chris-pedder-phd/}{https://www.
+linkedin.com/pulse/what-emergence-neural-networks-chris-pedder-phd/}
+
+\noindent
+Choi, R. C., Coyner, A. S., Kalpathy-Cramer, J., Chiang M. F., Campbell J. P., 2020. Introduction to Machine Learning, Neural Networks, and Deep Learning. \textit{Translational Vision Science \& Technology}, 27;9(2), pp.14.
+
+\noindent
+Bengio, Y., 2012. Practical Recommendations for Gradient-Based Training of Deep Architectures. In: G. Montavon, G. B. Orr, K. R. Muller, eds. \textit{Neural Networks: Tricks of the Trade}. Second Edition. Springer.
+
+\noindent
+Smith, L. N., Topin, N., 2017. Exploring Loss Function Topology with Cyclical Learning Rates. \textit{International Conference on Learning Representations}, 14 Febuary 2017, arXiv.org.
+
+
+
+
+%https://setosa.io/ev/image-kernels/
+%https://convviz.netlify.app/
+%Thresholded ConvNet ensembles: neural networks for technical forecasting
+
+\end{document}
