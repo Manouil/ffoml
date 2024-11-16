@@ -39,7 +39,12 @@
     \begin{tabular}{|l|l|l|}
         \hline
         \textbf{Name} & \textbf{Student ID} & \textbf{Contribution} \\ \hline
-        Emmanouil Tsolias       & 239490757 & Graded Assignment 2 \\ \hline
+        Emmanouil Tsolias       & 239490757 & Task 1 \\ \hline
+        Emmanouil Tsolias       & 239490757 & Task 2 \\ \hline
+        Emmanouil Tsolias       & 239490757 & Task 3 \\ \hline
+        Emmanouil Tsolias       & 239490757 & Task 4 \\ \hline
+        Emmanouil Tsolias       & 239490757 & Task 5 \\ \hline
+        -       & - & Task 6 \\ \hline
     \end{tabular}
     \caption{Individual Contribution to Group Work}
     \label{tab:contributions}
@@ -63,9 +68,9 @@ The new features have no actual meaning but can be used to show the distribution
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.5\textwidth]{./plots/plot1.png}  % Replace 'example-image' with your file name
+    \includegraphics[width=0.5\textwidth]{./plots/plot1.png}
     \caption{Plot of 2 first components of PCA for all digits of the MNIST dataset.}
-    \label{fig:plot1}  % Label for referencing the figure
+    \label{fig:plot1}
 \end{figure}
 
 If we plot the first two components with different colour for each class, we can see which classes overlap, and which ones are linearly separable.
@@ -74,22 +79,19 @@ Still, due to the significant overlap caused by 10 different classes, the distri
 
 \begin{figure}[h!]
     \centering
-    % First subfigure
     \begin{subfigure}[t]{0.45\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{./plots/plot2.png} % Replace with your first image
+        \includegraphics[width=\textwidth]{./plots/plot2.png}
         \caption{Plot of the first 2 PCA Components for all pairs of digits.}
         \label{fig:plot2a}
     \end{subfigure}
     \hspace{0.02\textwidth}
-    % Second subfigure
     \begin{subfigure}[t]{0.45\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{./plots/plot3.png} % Replace with your second image
+        \includegraphics[width=\textwidth]{./plots/plot3.png}
         \caption{Pair-wise PCA plot.}
         \label{fig:plot2b}
     \end{subfigure}
-    % Main caption for the figure
     \caption{Side-by-side visualization of PCA components and pair-wise PCA plots.}
     \label{fig:side_by_side}
 \end{figure}
@@ -112,9 +114,9 @@ Before applying and transformations on the dataset, it is important to normalize
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.5\textwidth]{./plots/plot4.png}  % Replace 'example-image' with your file name
+    \includegraphics[width=0.5\textwidth]{./plots/plot4.png}
     \caption{Calculation of Covariance Matrix (Dubey, 2018).}
-    \label{fig:plot5}  % Label for referencing the figure
+    \label{fig:plot3}
 \end{figure}
 
 The next step is to identify how much each feature correlates with the other ones, as the more they correlate, the less useful information they add.
@@ -145,9 +147,9 @@ This is demonstrated by the training vs test accuracy, over number of iterations
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=\textwidth]{./plots/plot5.png}  % Automatically scales to page width
+    \includegraphics[width=\textwidth]{./plots/plot5.png}
     \caption{Training vs Testing Mean Square Error (MSE).}
-    \label{fig:plot6}  % Label for referencing the figure
+    \label{fig:plot4}
 \end{figure}
 
 On one hand it is clear that peak accuracy is achieved at 10-20 iterations, after which the reduction in training MSE seems to indicate overfitting rather than actual improvement.
@@ -163,30 +165,28 @@ Areas with high or low brightness indicate consistent differences between the cl
 
 \begin{figure}[h!]
     \centering
-    % First subfigure
-    \begin{subfigure}[t]{0.3\textwidth} % Adjust width as needed
+    \begin{subfigure}[t]{0.3\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{./plots/plot6.png} % Replace with your first image file
+        \includegraphics[width=\textwidth]{./plots/plot6.png}
         \caption{Visualisation of weights learned by the Perceptron}
-        \label{fig:plot7a}
+        \label{fig:plot5a}
     \end{subfigure}
     \hspace{0.01\textwidth}
-    % Second subfigure
     \begin{subfigure}[t]{0.3\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{./plots/plot7.png} % Replace with your second image file
+        \includegraphics[width=\textwidth]{./plots/plot7.png}
         \caption{Difference between average hand-drawn 8 and 9 characters}
-        \label{fig:plot7b}
+        \label{fig:plot5b}
     \end{subfigure}
     \hspace{0.01\textwidth}
     \begin{subfigure}[t]{0.3\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{./plots/plot8.png} % Replace with your third image file
+        \includegraphics[width=\textwidth]{./plots/plot8.png}
         \caption{Accuracies for various digit pairs}
-        \label{fig:plot7c}
+        \label{fig:plot5c}
     \end{subfigure}
     \caption{How the model 'sees' the samples vs How we would expect it to see. Achieved accuracies for random pairs}
-    \label{fig:main_figure}
+    \label{fig:plot5}
 \end{figure}
 
 Figure 6 is a compilation of other pairs of digits with the respective achieved accuracy after training.
@@ -204,9 +204,9 @@ The resulting training and test accuracy is as follows:.
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.3\textwidth]{./plots/plot10.png}  % Automatically scales to page width
+    \includegraphics[width=0.3\textwidth]{./plots/plot10.png}
     \caption{MLP accuracy on train and test datasets}
-    \label{fig:plot8}  % Label for referencing the figure
+    \label{fig:plot6}
 \end{figure}
 
 At first sight it might seem as if the accuracy is lower that with the perceptron.
@@ -216,19 +216,19 @@ However, the model now performs multiclass classification, not binary classifica
     \centering
     \begin{subfigure}[t]{\textwidth}
         \centering
-        \includegraphics[width=0.7\textwidth]{./plots/screenshot1.png} % Replace with your first image file
+        \includegraphics[width=0.7\textwidth]{./plots/screenshot1.png}
         \caption{Train (yellow) and test (blue) accuracy at each epoch.}
-        \label{fig:fig91}
+        \label{fig:fig7a}
     \end{subfigure}
     \vspace{0.2cm}
     \begin{subfigure}[t]{\textwidth}
         \centering
-        \includegraphics[width=0.7\textwidth]{./plots/screenshot2.png} % Replace with your second image file
+        \includegraphics[width=0.7\textwidth]{./plots/screenshot2.png}
         \caption{Train (yellow) and test (blue) loss at each epoch.}
-        \label{fig:fig92}
+        \label{fig:fig7b}
     \end{subfigure}
     \caption{Train and test metrics vs epochs for standard MLP. Smoothing is set to 0.9.}
-    \label{fig:plot9}
+    \label{fig:plot7}
 \end{figure}
 
 We leave the model to train for 100 epochs to monitor accuracy and loss.
@@ -246,33 +246,32 @@ We produce 4 models with 3, 4, 6 and 8 such layers.
     \centering
     \begin{subfigure}[t]{\textwidth}
         \centering
-        \includegraphics[width=0.7\textwidth]{./plots/screenshot3.png} % Replace with your first image file
+        \includegraphics[width=0.7\textwidth]{./plots/screenshot3.png}
         \caption{Train accuracies for all models.}
-        \label{fig:subfig101}
+        \label{fig:subfig8a}
     \end{subfigure}
     \vspace{0.2cm}
     \begin{subfigure}[t]{\textwidth}
         \centering
-        \includegraphics[width=0.7\textwidth]{./plots/screenshot4.png} % Replace with your second image file
+        \includegraphics[width=0.7\textwidth]{./plots/screenshot4.png}
         \caption{Test accuracies for all models.}
-        \label{fig:subfig102}
+        \label{fig:subfig8b}
     \end{subfigure}
     \vspace{0.2cm}
     \begin{subfigure}[t]{\textwidth}
         \centering
-        \includegraphics[width=0.12\textwidth]{./plots/screenshot5.png} % Replace with your second image file
-        \caption{Legand.}
-        \label{fig:subfig103}
+        \includegraphics[width=0.12\textwidth]{./plots/screenshot5.png}
+        \label{fig:subfig8c}
     \end{subfigure}
     \caption{Train and test accuracies of all models. Smoothing is set to 0.9.}
-    \label{fig:plot10}
+    \label{fig:plot8}
 \end{figure}
 
 Looking at the train curves, we see that the train performance decreases with each added layer, indicating overfitting.
 The fact that the standard model is still the best could indicate that trading "width for "depth" is the wrong thing to do here.
 Similar things apply for the test dataset but with less consistency.
-The differences are of the order of \(0.1\% \) and there is some randomness involved (wheights init, train/test split), but the trend is reproducable accross different runs, so it would appear that all models hit a ceiling at around \(98.3\%\) accuracy.
-We would expect some drop to accuracy for larger models owning to overfiting but as we saw before, the degradation to performance appears on the loss.
+The differences are of the order of \(0.1\% \) and there is some randomness involved (wheights init, train/test split), but the trend is reproducable accross different runs, so it would appear that all models hit a ceiling at around \(98.3\%\) accuracy (vanishing gradient stops training after a depth).
+We would expect some drop to accuracy for deeper models owning to overfiting but as we saw before, the degradation to performance appears on the loss.
 
 Regarding the number of parameters for each model, the results are as follows:
 For fully connected layers, each neuron corresponds to one parameter for each input, plus the bias. Therefore, for the first layer, we calculate:
@@ -299,16 +298,16 @@ We can plot these values along with the respective accuracies.
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.8\textwidth]{./plots/plot11.png}  % Automatically scales to page width
+    \includegraphics[width=0.8\textwidth]{./plots/plot11.png}
     \caption{Accuracy for different architectures. No linear trend apparent but the models in the center seem to perform slightly better.}
-    \label{fig:plot11}  % Label for referencing the figure
+    \label{fig:plot9}
 \end{figure}
 
 The main model is second with most parameters because of the wider layers.
 At the large scale of things, all architectures perform similarily in terms of accuracy and as discussed, overfitting manifests itself as higher loss only.
 We conclude that for this problem, lighter configurations would be beneficial.
 
-\section{Convolutional Neural Network (10 points)}
+\section{Convolutional Neural Networks (Task 4)}
 
 Convolutional Neural Networks (CNNs) perform calculations on groups of features instead of individual ones.
 The calculation uses a kernel, that is a matrix of weights, that gets applied on the similarily sized slices of the sample using the rolling window approach.
@@ -318,9 +317,9 @@ The produced output is a map of the places where the structure of the kernel is 
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.8\textwidth]{./plots/screenshot6.png}  % Automatically scales to page width
+    \includegraphics[width=0.8\textwidth]{./plots/screenshot6.png}
     \caption{Application of the left sobel matrix highlights vertical high to low transitions of the face image (Powell)}
-    \label{fig:plot12}  % Label for referencing the figure
+    \label{fig:plot10}
 \end{figure}
 
 In a typical CNN architecture, multiple kernels are applied to the input layer which itself may consist of multiple layers.
@@ -330,7 +329,7 @@ The kernels match the input in terms of depth as well and each kernel produces a
     \centering
     \includegraphics[width=0.8\textwidth]{./plots/screenshot7.png}
     \caption{Characteristics of input and output layers in CNNs (made with Convviz)}
-    \label{fig:plot13}
+    \label{fig:plot11}
 \end{figure}
 
 This array of extracted features can then be used by higher order layers to synthesize more complex features, allowing the identification of complex entities.
@@ -340,14 +339,14 @@ An example is shown in figure 12 where speed signs are identified as specific co
     \centering
     \includegraphics[width=0.8\textwidth]{./plots/screenshot8.png}
     \caption{The CNN uses simple features (like the left sobel from figure 10) to construct complex ones (Ghoshal, 2020)}
-    \label{fig:plot14}
+    \label{fig:plot12}
 \end{figure}
 
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.3\textwidth]{./plots/plot12.png}
     \caption{CNN accuracy on train and test datasets}
-    \label{fig:plot15}
+    \label{fig:plot13}
 \end{figure}
 
 We see that the CNN model performs better on the test dataset than any of the MLPs.
@@ -358,12 +357,12 @@ After that, training accuracy keeps increasing while test accuracy has a slight 
     \centering
     \includegraphics[width=0.7\textwidth]{./plots/screenshot9.png}
     \caption{Train (cyan) and test (pink) accuracy at each epoch.}
-    \label{fig:plot16}
+    \label{fig:plot14}
 \end{figure}
 
 We will now make alterations to the Standard model to see how different hyperparameters affect it's behaviour.
 Focusing less on the initial epochs, the first thing that stands out is that increasing the kerne size from (4, 4) to (5, 5) is the only tweak that actually harms the accuracy
-Increasing the model's depth by adding a fourth layer seems to be the best tweak, though the increased number of parameters makes training slower. 
+Increasing the model's depth by adding a fourth layer (without other layers like pooling, normalisation, attention etc) seems to be the best tweak, though the increased number of parameters makes training slower. 
 Same goes for the wider version.
 In addition, these two variants maintain the upwards trend till the end, sugesting that more iterations could further benefit them. However this is also true for the worse (bigger kernel) one.
 The narrower model seems to perform as well as the standard one.
@@ -376,19 +375,19 @@ Also, the number of trainable parameters is vastly different between architectur
     \centering
     \begin{subfigure}[t]{\textwidth}
         \centering
-        \includegraphics[width=0.7\textwidth]{./plots/screenshot10.png} % Replace with your second image file
+        \includegraphics[width=0.7\textwidth]{./plots/screenshot10.png}
         \caption{Test accuracies for all CNN models.}
-        \label{fig:subfig17a}
+        \label{fig:subfig15a}
     \end{subfigure}
     \vspace{0.2cm}
     \begin{subfigure}[t]{\textwidth}
         \centering
-        \includegraphics[width=0.3\textwidth]{./plots/screenshot11.png} % Replace with your second image file
+        \includegraphics[width=0.3\textwidth]{./plots/screenshot11.png}
         \caption{Legand.}
-        \label{fig:subfig17b}
+        \label{fig:subfig15b}
     \end{subfigure}
     \caption{Test accuracies of all CNN models. Smoothing is set to 0.9.}
-    \label{fig:plot17}
+    \label{fig:plot15}
 \end{figure}
 
 To calculate the number of parameters in a CNN, we have that each \(n \cdot n \cdot k\) kernel has
@@ -446,46 +445,139 @@ From (c) we see that surprisingly, trainig time is not linear with number of par
 
 \begin{figure}[h!]
     \centering
-    \begin{subfigure}[t]{0.3\textwidth} % Adjust width as needed
+    \begin{subfigure}[t]{0.3\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{./plots/plot13.png} % Replace with your first image file
-        \caption{Accuracy vs Parameters \newline(Standard is behind Bigger Kernel)}
+        \includegraphics[width=\textwidth]{./plots/plot13.png}
+        \caption{Accuracy vs Parameters}
         \label{fig:plot16a}
     \end{subfigure}
     \hspace{0.01\textwidth}
     \begin{subfigure}[t]{0.3\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{./plots/plot14.png} % Replace with your second image file
+        \includegraphics[width=\textwidth]{./plots/plot14.png}
         \caption{Accuracy vs Training Time}
         \label{fig:plot16b}
     \end{subfigure}
     \hspace{0.01\textwidth}
     \begin{subfigure}[t]{0.3\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{./plots/plot15.png} % Replace with your third image file
+        \includegraphics[width=\textwidth]{./plots/plot15.png}
         \caption{Parameters vs Training Time}
         \label{fig:plot16c}
     \end{subfigure}
     \caption{Comparison of Accuracy, Number of Parameters and Training Time}
-    \label{fig:main_figure}
+    \label{fig:plot16}
 \end{figure}
 
 Compared to MLPs, we see that the performance is better with way less parameters but more training time, as convolutions and back propagation accross many filters and windows are more compute intensive that matrix multiplications
 
 
-\section{Visualising CNN outcomes (10 points)}
+\section{Visualising CNN outcomes (Task 5)}
+
+Our standard CNN architecture has 3 convolutional layers. Each layer needs as many kernels as the number of input layers, and that is repeated for each output filter of that layer.
+Hence, the first layer has 32 filters, the second layer has 64 filters for each of the 32 filters of the previous layer, and the third one has \(128 \cdot 64\) filters.
+All filters are \(4\times4\) since thats the difined kernel size
+
+\begin{figure}[h!]
+    \centering
+    \begin{subfigure}[t]{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{./plots/layer_0_plot.png}
+        \caption{Filters from convolution layer 0.}
+        \label{fig:subfig17a}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[t]{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{./plots/layer_1_plot.png}
+        \caption{Filters from convolution layer 1.}
+        \label{fig:subfig17b}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[t]{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{./plots/layer_2_plot.png}
+        \caption{Filters from convolution layer 2.}
+        \label{fig:subfig17c}
+    \end{subfigure}
+    \caption{Filters from all layers, arranged side by side.}
+    \label{fig:plot17}
+\end{figure}
 
 
-\section{Template Section}
-\subsection{Template Subsection}
-\subsubsection{Template SubSubsection}
 
+We show 25 filters from each layer so that includes both lower and higher level features.
+Because of the small kernel size, it is difficult to identify specific part of some digit.
+What we notice instead are motifs of stark differences. 
+In layer 0 these are used to identify smaller details are different between digits.
+In higher layers the filters identify the distribution of the previous levels finer details.
+
+\begin{figure}[h!]
+    \centering
+    \begin{subfigure}[t]{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{./plots/activation2_0.png}
+        \caption{Activations from convolution layer 0.}
+        \label{fig:subfig18a}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[t]{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{./plots/activation2_1.png}
+        \caption{Activations from convolution layer 1.}
+        \label{fig:subfig18b}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[t]{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{./plots/activation2_2.png}
+        \caption{Activations from convolution layer 2.}
+        \label{fig:subfig18c}
+    \end{subfigure}
+    \caption{Activations for random sample '2'}
+    \label{fig:plot18}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \begin{subfigure}[t]{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{./plots/activation9_0.png}
+        \caption{Activations from convolution layer 0.}
+        \label{fig:subfig19a}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[t]{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{./plots/activation9_1.png}
+        \caption{Activations from convolution layer 1.}
+        \label{fig:subfig19b}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[t]{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{./plots/activation9_2.png}
+        \caption{Activations from convolution layer 2.}
+        \label{fig:subfig19c}
+    \end{subfigure}
+    \caption{Activations for random sample '9'}
+    \label{fig:plot19}
+\end{figure}
+
+Figures 18 and 19 show the the activations of 8 kernels for each convolutional layer.
+We see that the activations of the first layer create a sort of partial outline of the digit, a map of where a specific patern is present.
+Hence, while they still resemble the drawing, new shapes are created.
+The following layers do not "look" at the image but instead at the activation maps (the new shapes) and thus are not recogniseable, but they start to look more like the filters from Figure 17.
+We could say that the model manages to circumvent some of the noise that comes with human hand drawing by creating and using custom features that are invariable.
+
+\section{Acknowledgments}
+For some complex Matplotlib plots, OpenAI's ChatGPT model 4o was used to assist with the code's syntax.
 
 
 \section{References}
 
 Khee, L. K., 2022. \textit{Limitation of Data Visualisation} [Online]. Available from 
-\href{https://medium.com/@e0673935/limitation-of-data-visualization-1e4db068a22a}{https://medium.com/@e0673935/limitation-of-data-visualization-1e4db068a22a} [Accessed 13 October 2024]. \newline
+\href{https://medium.com/@e0673935/limitation-of-data-visualization-1e4db068a22a}{https://medium.com/@e0673935/\newline limitation-of-data-visualization-1e4db068a22a} [Accessed 13 October 2024]. \newline
 
 \noindent
 Mackiewicz, A., Ratajczak, W., 1993. Principal Components Analysis. \textit{Computers \& Geosciences}, 19(3), 303-342. \newline
@@ -518,11 +610,13 @@ Bengio, Y., 2012. Practical Recommendations for Gradient-Based Training of Deep 
 \noindent
 Smith, L. N., Topin, N., 2017. Exploring Loss Function Topology with Cyclical Learning Rates. \textit{International Conference on Learning Representations}, 14 Febuary 2017, arXiv.org.
 
+\noindent
+Powell, V., \textit{Image Kernels} [Online]. Available from \href{https://setosa.io/ev/image-kernels/}{https://setosa.io/ev/image-kernels/} [Accessed 11 November 2024].
 
+\noindent
+\textit{Convviz} [Online]. Available from \href{https://convviz.netlify.app/}{https://convviz.netlify.app/} [Accessed 15 November 2024]
 
-
-%https://setosa.io/ev/image-kernels/
-%https://convviz.netlify.app/
-%Thresholded ConvNet ensembles: neural networks for technical forecasting
+\noindent
+Ghoshal, N., Roberts, S. J., 2018. Thresholded ConvNet Ensembles: Neural Networks for Technical Forecasting. \textit{Computational Finance}, 9 Jul 2018, arXiv.org.
 
 \end{document}

@@ -14,3 +14,6 @@
 \contentsline {figure}{\numberline {14}{\ignorespaces Train (cyan) and test (pink) accuracy at each epoch.}}{12}{figure.caption.18}%
 \contentsline {figure}{\numberline {15}{\ignorespaces Test accuracies of all CNN models. Smoothing is set to 0.9.}}{13}{figure.caption.19}%
 \contentsline {figure}{\numberline {16}{\ignorespaces Comparison of Accuracy, Number of Parameters and Training Time}}{14}{figure.caption.20}%
+\contentsline {figure}{\numberline {17}{\ignorespaces Filters from all layers, arranged side by side.}}{15}{figure.caption.21}%
+\contentsline {figure}{\numberline {18}{\ignorespaces Activations for random sample '2'}}{15}{figure.caption.22}%
+\contentsline {figure}{\numberline {19}{\ignorespaces Activations for random sample '9'}}{15}{figure.caption.23}%

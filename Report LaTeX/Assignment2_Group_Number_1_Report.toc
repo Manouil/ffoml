@@ -4,9 +4,7 @@
 \contentsline {subsection}{\numberline {2.2}Mathematical basis of PCA}{5}{subsection.2.2}%
 \contentsline {section}{\numberline {3}Perceptrons (Task 2)}{6}{section.3}%
 \contentsline {section}{\numberline {4}Multilayer Perceptrons (Task 3)}{7}{section.4}%
-\contentsline {section}{\numberline {5}Convolutional Neural Network (10 points)}{10}{section.5}%
-\contentsline {section}{\numberline {6}Visualising CNN outcomes (10 points)}{15}{section.6}%
-\contentsline {section}{\numberline {7}Template Section}{15}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Template Subsection}{15}{subsection.7.1}%
-\contentsline {subsubsection}{\numberline {7.1.1}Template SubSubsection}{15}{subsubsection.7.1.1}%
-\contentsline {section}{\numberline {8}References}{15}{section.8}%
+\contentsline {section}{\numberline {5}Convolutional Neural Networks (Task 4)}{10}{section.5}%
+\contentsline {section}{\numberline {6}Visualising CNN outcomes (Task 5)}{14}{section.6}%
+\contentsline {section}{\numberline {7}Acknowledgments}{16}{section.7}%
+\contentsline {section}{\numberline {8}References}{16}{section.8}%
